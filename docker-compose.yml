@@ -34,7 +34,7 @@ services:
         depends_on:
             - redis
             - db
-        command: ["./wait-for-it.sh", "db:5432", "--", "node", "index.js"]
+        command: ["./wait-for-it.sh", "db:5432", "--", "npm", "start"]
 volumes:
     pgdata:
 networks:
