@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+    db:
+        image: postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        networks:
+            - webnet
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: "eth_keys"
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+        networks:
+            - webnet
+    web:
+        image: ethereum-wallet-bot
+        networks:
+            - webnet
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            DB_HOST: db
+            REDIS_HOST: redis
+            BOT_TOKEN: ${BOT_TOKEN}
+            API_URL: ${API_URL}
+        depends_on:
+            - redis
+            - db
+        command: ["./wait-for-it.sh", "db:5432", "--", "node", "index.js"]
+volumes:
+    pgdata:
+networks:
+    webnet:

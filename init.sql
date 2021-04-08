@@ -1,0 +1,1 @@
+CREATE TABLE eth_keys (user_id integer not null, private_key varchar(65) not null, address varchar(65) not null);

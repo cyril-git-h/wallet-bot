@@ -72,7 +72,7 @@ bot.start(async (ctx) => {
     await ctx.replyWithSticker('CAACAgIAAxkBAAEBHMNgaK0CrGPgywKRGYud8unuyPhLfgAC0AwAArTbOUvJjieRZ4UaQh4E')
 })
 bot.hears('❖ Wallet', isAuth, Stage.enter('privateKeyScene'))
-bot.hears('📋 About', ctx => ctx.reply('about'))
+bot.hears('📋 About', ctx => ctx.reply('Created by @cyrclone'))
 
 bot.action('receiveEth', doesAccountExist, ctx => receiveAction(ctx))
 bot.action('sendEth', doesAccountExist, ctx => sendingOptionAction(ctx))
