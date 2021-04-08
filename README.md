@@ -15,6 +15,12 @@ sudo apt-get update
 sudo apt-get install ethereum
 ```
 
+## Run the node
+
+```
+geth --syncmode light --rpc --rpcaddr 0.0.0.0 --rpcport 8545
+```
+
 ## Create .env file
 
 ```
