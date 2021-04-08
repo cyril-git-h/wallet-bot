@@ -9,14 +9,16 @@ The bot based on Telegraf library uses Redis for caching addresses and Posgresql
 ## Install Geth
 
 For Ubuntu:
-```sudo add-apt-repository -y ppa:ethereum/ethereum
+```
+sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get update
 sudo apt-get install ethereum
 ```
 
 ## Create .env file
 
-```BOT_TOKEN=YOUR_TOKEN
+```
+BOT_TOKEN=YOUR_TOKEN
 POSTGRES_USER=
 POSTGRES_PASSWORD=
 API_URL=http://172.17.0.1:8545 //points to host
