@@ -24,5 +24,6 @@ API_URL=http://172.17.0.1:8545 //points to host
 
 ## Get containers using docker-compose and run them
 
-```docker-compose up
+```
+docker-compose up
 ```
