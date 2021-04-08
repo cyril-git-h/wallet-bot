@@ -2,3 +2,5 @@ node_modules
 .idea
 .env
 pgdata
+.gitignore
+.git

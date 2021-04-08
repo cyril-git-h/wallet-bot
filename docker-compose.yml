@@ -21,7 +21,7 @@ services:
         networks:
             - webnet
     web:
-        image: ethereum-wallet-bot
+        image: cyrdocker/ethereum-wallet-bot
         networks:
             - webnet
         environment:
