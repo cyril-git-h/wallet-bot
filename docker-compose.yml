@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 services:
     db:
         image: postgres
@@ -16,8 +16,11 @@ services:
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     redis:
         image: redis
-        ports:
-            - "6379:6379"
+        environment:
+            - REDIS_APPENDONLY=yes
+            - REDIS_APPENDFSYNC=always
+        volumes:
+            - ./redis-data:/data
         networks:
             - webnet
     web:
@@ -37,5 +40,6 @@ services:
         command: ["./wait-for-it.sh", "db:5432", "--", "npm", "start"]
 volumes:
     pgdata:
+    redis-data:
 networks:
     webnet:
