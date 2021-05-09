@@ -1,6 +1,8 @@
 # wallet-bot
 Personal ethereum wallet within a telegram bot
 
+https://t.me/ThePEWbot
+
 ## About
 
 With this Telegram bot you can use up to five Ethereum private keys, sign transactions with them, get QR code corresponding to associated address and send Ether to address with photo of its QR code.
